@@ -62,7 +62,7 @@ public class UserDAO {
         List<User> listUsers = new ArrayList<>();
 
 //        int currentIsolationLevel = jdbcConnection.getTransactionIsolation();
-        jdbcConnection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+        jdbcConnection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
 
 
 
