@@ -7,7 +7,7 @@
 
 <body>
     <center>
-        <h1>Users Management callable</h1>
+        <h1>Users Management callable + RC</h1>
         <h2>
             <a href="/simple/newuser">Add New User</a>
             &nbsp;&nbsp;&nbsp;
