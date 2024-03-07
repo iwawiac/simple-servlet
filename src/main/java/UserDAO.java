@@ -30,15 +30,42 @@ public class UserDAO {
         }
     }
 
+//    public List<User> listAllUsers() throws SQLException {
+//        List<User> listUsers = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM users";
+//
+//        connect();
+//
+//        Statement statement = jdbcConnection.createStatement();
+//        ResultSet resultSet = statement.executeQuery(sql);
+//
+//        while (resultSet.next()) {
+//            int id = resultSet.getInt("id");
+//            String name = resultSet.getString("name");
+//            String surname = resultSet.getString("surname");
+//            int age = resultSet.getInt("age");
+//
+//            User user = new User(id, name, surname, age);
+//            listUsers.add(user);
+//        }
+//
+//        resultSet.close();
+//        statement.close();
+//        disconnect();
+//        return listUsers;
+//    }
+
     public List<User> listAllUsers() throws SQLException {
         List<User> listUsers = new ArrayList<>();
 
-        String sql = "SELECT * FROM users";
+        // Use a CallableStatement to call the stored procedure
+        String storedProcedureCall = "{ call select_all_users() }";
 
         connect();
 
-        Statement statement = jdbcConnection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
+        CallableStatement callableStatement = jdbcConnection.prepareCall(storedProcedureCall);
+        ResultSet resultSet = callableStatement.executeQuery();
 
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
@@ -51,8 +78,9 @@ public class UserDAO {
         }
 
         resultSet.close();
-        statement.close();
+        callableStatement.close();
         disconnect();
+
         return listUsers;
     }
 
