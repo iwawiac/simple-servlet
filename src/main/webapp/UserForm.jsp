@@ -45,7 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Author: </th>
+                <th>Surname: </th>
                 <td>
                     <input type="text" name="surname" size="45"
                             value="<c:out value='${user.surname}' />"
