@@ -7,7 +7,7 @@
 
 <body>
     <center>
-        <h1>Users Management</h1>
+        <h1>Users Management Application</h1>
         <h2>
             <a href="/simple/newuser">Add New User</a>
             &nbsp;&nbsp;&nbsp;
