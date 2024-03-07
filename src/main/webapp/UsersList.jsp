@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Users Management Application</title>
+    <title>Users Management Application added isolation switch & callable</title>
 
 <body>
     <center>

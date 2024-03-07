@@ -56,10 +56,16 @@ public class UserDAO {
 //        return listUsers;
 //    }
 
+    // Callable statement
     public List<User> listAllUsers() throws SQLException {
+
         List<User> listUsers = new ArrayList<>();
 
-        // Use a CallableStatement to call the stored procedure
+        int currentIsolationLevel = jdbcConnection.getTransactionIsolation();
+        jdbcConnection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+
+
+
         String storedProcedureCall = "{ call select_all_users() }";
 
         connect();
@@ -80,6 +86,9 @@ public class UserDAO {
         resultSet.close();
         callableStatement.close();
         disconnect();
+
+        jdbcConnection.setTransactionIsolation(currentIsolationLevel);
+
 
         return listUsers;
     }
