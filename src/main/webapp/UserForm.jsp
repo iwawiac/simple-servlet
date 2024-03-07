@@ -53,7 +53,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Price: </th>
+                <th>Age: </th>
                 <td>
                     <input type="text" name="age" size="5"
                             value="<c:out value='${user.age}' />"
