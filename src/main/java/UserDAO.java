@@ -62,13 +62,11 @@ public class UserDAO {
         List<User> listUsers = new ArrayList<>();
 
 //        int currentIsolationLevel = jdbcConnection.getTransactionIsolation();
-        jdbcConnection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
-
-
 
         String storedProcedureCall = "{ call select_all_users() }";
 
         connect();
+        jdbcConnection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
 
         CallableStatement callableStatement = jdbcConnection.prepareCall(storedProcedureCall);
         ResultSet resultSet = callableStatement.executeQuery();
