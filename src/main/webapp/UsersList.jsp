@@ -3,11 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Users Management Application added isolation switch & callable</title>
+    <title>Users Management Application</title>
 
 <body>
     <center>
-        <h1>Users Management Application</h1>
+        <h1>Users Management callable</h1>
         <h2>
             <a href="/simple/newuser">Add New User</a>
             &nbsp;&nbsp;&nbsp;
